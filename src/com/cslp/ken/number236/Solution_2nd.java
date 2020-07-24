@@ -15,16 +15,15 @@ public class Solution_2nd {
   private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
     //1.terminal
     if (root == null) return false;
-
-    //2.process
     boolean lson = dfs(root.left, p, q);
     boolean rson = dfs(root.right, p, q);
-    if ((lson && rson) || ((root.val == p.val || root.val == q.val) && (lson || rson))) {
+    //2.process
+    if (lson && rson || ((root.val == p.val || root.val == q.val) && (lson || rson))) {
       ans = root;
     }
 
     //3.drill down
-    return lson || rson || (root.val == p.val  ||  root.val == q.val);
+    return (lson || rson || (root.val == p.val || root.val == q.val) );
 
     //4.reverse
   }

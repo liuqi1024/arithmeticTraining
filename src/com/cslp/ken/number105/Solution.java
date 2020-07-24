@@ -1,4 +1,4 @@
-package number105;
+package com.cslp.ken.number105;
 
 import java.util.HashMap;
 
@@ -35,8 +35,8 @@ public class Solution {
     root.left = recursionBuildTree(preorder, inorder, preLeft + 1, preLeft + size_left_subtree,
       inLeft, inRoot - 1);
 
-    root.right = recursionBuildTree(preorder, inorder, preLeft + size_left_subtree + 1,
-      preRight, inRoot + 1, inRight);
+    root.right = recursionBuildTree(preorder, inorder, preLeft + size_left_subtree + 1, preRight,
+      inRoot + 1, inRight);
 
     return root;
 
@@ -46,9 +46,6 @@ public class Solution {
 
 
 }
-
-
-
 
 // Definition for a binary tree node.
 class TreeNode {
