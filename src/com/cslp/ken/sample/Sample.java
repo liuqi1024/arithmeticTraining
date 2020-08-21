@@ -1,15 +1,13 @@
 package com.cslp.ken.sample;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Sample {
   public static void main(String[] args) {
-    System.out.println("hello".charAt(1) - 'a');
-
+//    linkedHashMapDemo();
+    linkedListDemo();
+    hashMapDemo();
 //    HashMap<Integer, ArrayList> hashMap = new HashMap();
 //    ArrayList arrayList = new ArrayList();
 //    hashMap.put(1, new ArrayList());
@@ -27,6 +25,48 @@ public class Sample {
 
   }
 
+  private static void linkedListDemo() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.push("a");
+    linkedList.push("b");
+    linkedList.push("c");
+    linkedList.push("d");
+    linkedList.push("e");
+
+    System.out.println(linkedList.peek());
+    System.out.println(linkedList.getFirst());
+    System.out.println(linkedList.peekLast());
+
+
+    for (Object i :linkedList ) {
+      System.out.print (i + " ");
+    }
+    System.out.println();
+    linkedList.forEach(k -> System.out.print(k + " "));
+    System.out.println();
+  }
+
+  private static void hashMapDemo() {
+    HashMap<String, String> hashMap = new LinkedHashMap(16, 0.75F, true){
+      @Override
+      protected boolean removeEldestEntry(Map.Entry eldest) {
+        return size() > 4;
+      }
+    };
+    hashMap.put("a", "A");
+    hashMap.put("d", "D");
+    hashMap.put("b", "B");
+    hashMap.put("c", "C");
+    hashMap.put("e", "E");
+    System.out.println("hashmap:");
+    hashMap.forEach((k, v) -> System.out.println(k + ":" + v));
+
+    hashMap.get("c");
+    System.out.println("change order:");
+    hashMap.forEach((k, v) -> System.out.println(k + ":" + v));
+    System.out.println("keys:");
+    hashMap.keySet().forEach(k -> System.out.print(k + " "));
+  }
 
   private static void linkedHashMapDemo() {
     LinkedHashMap<String, String> accessOrderedMap = new LinkedHashMap<String, String>(16, 0.75F, true) {
@@ -38,6 +78,7 @@ public class Sample {
     accessOrderedMap.put("Project1", "Valhalla");
     accessOrderedMap.put("Project2", "Panama");
     accessOrderedMap.put("Project3", "Loom");
+
     accessOrderedMap.forEach((k, v) -> {
       System.out.println(k + ":" + v);
     });
