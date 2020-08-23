@@ -24,14 +24,17 @@ public class Solution {
     wordSet.remove(beginWord);
 
     Queue<String> queue = new LinkedList<>();
+    //添加到队列
     queue.offer(beginWord);
     Set<String> visited = new HashSet<>();
+    //添加到已访问列表
     visited.add(beginWord);
 
     int wordLen = beginWord.length();
     int step = 1;
 
     while (!queue.isEmpty()) {
+      System.out.println("queue => " + queue);
      int currentSize = queue.size();
       for (int i = 0; i < currentSize; i++) {
          String word = queue.poll();
@@ -69,6 +72,7 @@ public class Solution {
     String beginWord = "hit";
     String endWord = "cog";
     List<String> wordList = new ArrayList<>();
+//    String[] wordListArray = new String[]{"hot", "dot", "dog", "lot", "log", "cog"};
     String[] wordListArray = new String[]{"hot", "dot", "dog", "lot", "log", "cog"};
     Collections.addAll(wordList, wordListArray);
     Solution solution = new Solution();
