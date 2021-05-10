@@ -27,7 +27,7 @@ public class Solution_2nd {
 
     //2. 第二遍循环：判断是否存在目标值
     for (int i = 0; i < nums.length; i++) {
-      if (hashMap.containsKey(target - nums[i])) {
+      if (hashMap.containsKey(target - nums[i]) && hashMap.get(target - nums[i]) != i) {
         return new int[]{i, hashMap.get(target - nums[i])};
       }
     }
@@ -53,7 +53,7 @@ public class Solution_2nd {
 //    int[] nums = new int[]{1, 3, 3, 8, 4, 7};
     int[] nums = new int[]{3, 2, 4};
     int target = 6;
-    int[] result = new Solution_2nd().twoSum(nums, target);
+    int[] result = new Solution_2nd().twoSum_twice_hash(nums, target);
     System.out.println(Arrays.toString(result));
   }
 }
