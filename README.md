@@ -1,2 +1,2 @@
-# ArithmeticTraning
+# ArithmeticTraining
 arithemtic training
